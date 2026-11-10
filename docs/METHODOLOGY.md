@@ -37,6 +37,8 @@ Visible execution of the **final resting order** is processed before looking at 
 
 If the signal-to-horizon period crosses a halt/auction, the entire hypothetical order is labeled `ineligible_session_boundary`. A fill before the halt is **not** marked to an unrelated post-halt midprice or silently categorized as an ordinary unfilled order. Denominators disclose both all probes and eligible probes.
 
+A visible execution can count as a fill only if it occurs **strictly before** the markout event (`activation < fill < t+h`); treating the markout event itself as an entry produces a zero-holding-period artifact.
+
 At fixed t+h, a filled share's markout is `side * (mid[t+h] - placed_limit) / 100 - fee_bps * placed_limit / 1,000,000`. Default 1 bp is a **hypothetical flat cost**, not an actual Nasdaq/Tower fee schedule. These are **fill-conditional** markouts; unfilled orders do not get fabricated PnL. The test-only order probes are spaced h+1 events apart, but consecutive market observations remain serially correlated.
 
 ## Critical omissions

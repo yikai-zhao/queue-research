@@ -51,6 +51,8 @@ The new integrity checks found no new market alpha: on the same 16,000-event **s
 
 A signal can predict a midprice change while still yielding **zero passive fills**. The naive-touch model deliberately assumes all eligible orders fill immediately; it is a comparison bound, not a viable execution strategy. Market-by-price (L2) data does not reveal the exact FIFO queue ahead of a new order, and a historical replay cannot model the market impact of adding our order. It reports **hypothetical order-level, fill-conditional markouts**, never compounded PnL, Sharpe or claimed HFT profitability. Event-count latency is not physical microseconds.
 
+The [2026-11-10 correctness and evidence audit](docs/AUDIT_20261110.md) also fixes a same-event fill/markout boundary and protects archived synthetic reports against code-version drift.
+
 See [Walk-forward methodology and controlled limitations](docs/WALK_FORWARD.md), [Methodology and invariants](docs/METHODOLOGY.md), [Data provenance and required real-data milestone](docs/DATA.md), [Evidence and regression status](docs/VALIDATION.md).
 
 ## Related work

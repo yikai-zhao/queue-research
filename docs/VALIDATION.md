@@ -21,5 +21,19 @@ Raw synthetic panel: `evidence/seed-panel.json` (generated with source-controlle
 - All retained event-time label windows within an individual `h+1` phase are disjoint. We show all phases, their sample sizes and sign variability. Other phases reuse observations and cannot be combined into an independent significance test.
 - Execution sensitivity uses exactly the frozen holdout signals and predeclared event latencies 1/2/5 (subject to `latency < horizon`) and hypothetical 0/1/3 bps fees. No best fee or latency is picked from test outcomes.
 - Circular shift diagnostics are **not produced** if the holdout crosses a halt/auction: no surrogate p-value from rotations between distinct trading segments.
-- Added 13 adversarial and metamorphic tests for these invariants. Current clean-run suite: **55/55 passed**. This is algorithm correctness evidence, not real-data accuracy or profit evidence.
+- Added 13 adversarial and metamorphic tests for these invariants. That revision passed **55/55** tests; the later 2026-11-10 audit is described below. This is algorithm correctness evidence, not real-data accuracy or profit evidence.
 - The legacy synthetic seed panel was rerun unchanged: **0/12** nominal null rejections, **8/12** nominal injected-positive detections, still not a calibrated test of finance hypotheses.
+
+## 2026-11-10 execution and evidence consistency audit
+
+- Before fix: three same-event fill/markout counterexample assertions failed;
+  corrected the scan to require `activation < fill < markout`.
+- Re-generated both seeded 16,000-event examples and robustness aggregate with
+  the current execution and walk-forward implementation; the prior committed
+  examples were stale and displayed earlier fill percentages.
+- Added full-report reproducibility tests and a manifest over all current
+  source/tests/docs/evidence files (excluding the manifest itself).
+- Re-ran the 12-seed controlled panel unchanged: 0/12 nominal null detections
+  and 8/12 injected-positive detections. These are synthetic outcomes only.
+- Audited local targeted/clean unit suite: **66/66 passed** on 2026-11-10.
+  No empirical real-market or execution-capacity claim follows from this.

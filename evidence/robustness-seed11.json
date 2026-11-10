@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "seeded synthetic generator; not market data",
-  "evaluation": "fixed seed 11, 16000 stylized events per run, holdout 40%, h=30 events, no strategy PnL",
+  "evaluation": "seed 11, 16000 stylized events, 40% holdout, h=30; strict execution before markout; no strategy PnL",
   "trials": {
     "null": {
       "signal_threshold_selected_on_train": 0.25,
@@ -12,11 +12,13 @@
       "nonoverlap_phases_total": 31,
       "baseline_execution_fill_fractions": {
         "naive_touch": 0.987879,
-        "cancel_ahead": 0.341212,
-        "conservative": 0.172121
+        "cancel_ahead": 0.327273,
+        "conservative": 0.163636
       },
       "sensitivity_cells": 9,
-      "synthetic_only": true
+      "synthetic_only": true,
+      "walkforward_folds": 4,
+      "walkforward_test_signals": 220
     },
     "predictive": {
       "signal_threshold_selected_on_train": 0.45,
@@ -27,11 +29,13 @@
       "nonoverlap_phases_total": 31,
       "baseline_execution_fill_fractions": {
         "naive_touch": 0.964602,
-        "cancel_ahead": 0.307965,
-        "conservative": 0.142478
+        "cancel_ahead": 0.29115,
+        "conservative": 0.132743
       },
       "sensitivity_cells": 9,
-      "synthetic_only": true
+      "synthetic_only": true,
+      "walkforward_folds": 4,
+      "walkforward_test_signals": 187
     }
   },
   "controlled_seed_panel": {
@@ -42,12 +46,15 @@
     "positive_nominal_5pct_detected": 8
   },
   "source_sha256": {
+    "src/queue_research/__init__.py": "5db491377ed8a3a7eec63c6a85987b0a0e83431e2159e301f55dd12b6d700e95",
+    "src/queue_research/__main__.py": "36494f46ba63f38c2dd31b76e3b128d2b1fb8152856398fa638fcb676df59b97",
     "src/queue_research/data.py": "310151d8716c52ddf408e46cea7569d2d8b36b1f78cc19ead714f0037c949e83",
+    "src/queue_research/execution.py": "048c4d582f465e0c9183cf3a3745e011499e83bbcdb70a8ad80a5dffc7af2e9e",
+    "src/queue_research/experiment.py": "63edfdea3c6779815e7eaade224641fd6923addf5cdfc3644d758ba4b2140a10",
     "src/queue_research/research.py": "7053075acfaad199f48375fb5fc4ce13ef81ebea000cbd1660fac6d7f5b65909",
-    "src/queue_research/experiment.py": "987beac7c5582c1313bda5a9a8ba15825ec5f64f13f7cd07de57ec6e9bcd043d",
-    "src/queue_research/execution.py": "06717830338988a88491dbbafa9e9a92fd4ef6bbde210ad4a5672834a0d838ea",
     "src/queue_research/robustness.py": "fc11a9b0e0049997475d3c36148e3b81b93fe42d499d0623694e734e0b40dc39",
-    "src/queue_research/synthetic.py": "5d233198fe24067735eee167010d5b455dd45a52e8d24c0517670af6d70d239e"
+    "src/queue_research/synthetic.py": "5d233198fe24067735eee167010d5b455dd45a52e8d24c0517670af6d70d239e",
+    "src/queue_research/walkforward.py": "750f8490042cb93167098cb2caf8dfb347091c10abdc7021a014c01ec2c0b7c5"
   },
   "caveat": "All numerical observations from synthetic tape; no live market, strategy PnL, Sharpe, calibrated execution, or licensed real tape."
 }

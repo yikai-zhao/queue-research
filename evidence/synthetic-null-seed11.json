@@ -22,33 +22,707 @@
     "test_mean_signed_ticks": 0.017533606078316773,
     "test_positive_fraction": 0.1891681278005065,
     "shifted_null_p_value": 0.36633663366336633,
-    "null_iterations": 100
+    "null_iterations": 100,
+    "null_diagnostic_status": "exploratory_single_segment_circular_shift"
   },
   "execution": {
     "naive_touch": {
       "hypothetical_orders": 165,
+      "eligible_orders": 165,
+      "ineligible_session_boundary_orders": 0,
+      "quote_changed_during_latency": 2,
       "filled_orders": 163,
       "partially_filled_orders": 0,
       "fill_quantity_fraction": 0.987879,
+      "eligible_fill_quantity_fraction": 0.987879,
       "mean_fill_conditional_markout_ticks": 0.007088,
       "interpretation": "counterfactual standalone orders; not portfolio PnL"
     },
     "cancel_ahead": {
       "hypothetical_orders": 165,
-      "filled_orders": 61,
-      "partially_filled_orders": 9,
-      "fill_quantity_fraction": 0.341212,
-      "mean_fill_conditional_markout_ticks": 0.022209,
+      "eligible_orders": 165,
+      "ineligible_session_boundary_orders": 0,
+      "quote_changed_during_latency": 2,
+      "filled_orders": 59,
+      "partially_filled_orders": 10,
+      "fill_quantity_fraction": 0.327273,
+      "eligible_fill_quantity_fraction": 0.327273,
+      "mean_fill_conditional_markout_ticks": 0.02312,
       "interpretation": "counterfactual standalone orders; not portfolio PnL"
     },
     "conservative": {
       "hypothetical_orders": 165,
-      "filled_orders": 33,
+      "eligible_orders": 165,
+      "ineligible_session_boundary_orders": 0,
+      "quote_changed_during_latency": 2,
+      "filled_orders": 32,
       "partially_filled_orders": 8,
-      "fill_quantity_fraction": 0.172121,
-      "mean_fill_conditional_markout_ticks": 0.078318,
+      "fill_quantity_fraction": 0.163636,
+      "eligible_fill_quantity_fraction": 0.163636,
+      "mean_fill_conditional_markout_ticks": 0.082351,
       "interpretation": "counterfactual standalone orders; not portfolio PnL"
     }
+  },
+  "holdout_phase_sensitivity": {
+    "phases_evaluated": 31,
+    "phases_with_signals": 31,
+    "positive_mean_phases": 21,
+    "signals_min_per_phase": 157,
+    "signals_median_per_phase": 166,
+    "mean_signed_ticks_min": -0.02994,
+    "mean_signed_ticks_median": 0.018182,
+    "mean_signed_ticks_max": 0.061728,
+    "phases": [
+      {
+        "offset": 0,
+        "signals": 165,
+        "mean_signed_ticks": 0.006061,
+        "positive_fraction": 0.175758
+      },
+      {
+        "offset": 1,
+        "signals": 168,
+        "mean_signed_ticks": 0.029762,
+        "positive_fraction": 0.184524
+      },
+      {
+        "offset": 2,
+        "signals": 166,
+        "mean_signed_ticks": 0.0,
+        "positive_fraction": 0.180723
+      },
+      {
+        "offset": 3,
+        "signals": 167,
+        "mean_signed_ticks": -0.005988,
+        "positive_fraction": 0.167665
+      },
+      {
+        "offset": 4,
+        "signals": 173,
+        "mean_signed_ticks": -0.00578,
+        "positive_fraction": 0.17341
+      },
+      {
+        "offset": 5,
+        "signals": 162,
+        "mean_signed_ticks": -0.012346,
+        "positive_fraction": 0.160494
+      },
+      {
+        "offset": 6,
+        "signals": 166,
+        "mean_signed_ticks": -0.006024,
+        "positive_fraction": 0.180723
+      },
+      {
+        "offset": 7,
+        "signals": 167,
+        "mean_signed_ticks": 0.017964,
+        "positive_fraction": 0.185629
+      },
+      {
+        "offset": 8,
+        "signals": 166,
+        "mean_signed_ticks": 0.03012,
+        "positive_fraction": 0.186747
+      },
+      {
+        "offset": 9,
+        "signals": 163,
+        "mean_signed_ticks": 0.030675,
+        "positive_fraction": 0.190184
+      },
+      {
+        "offset": 10,
+        "signals": 167,
+        "mean_signed_ticks": 0.053892,
+        "positive_fraction": 0.203593
+      },
+      {
+        "offset": 11,
+        "signals": 162,
+        "mean_signed_ticks": 0.061728,
+        "positive_fraction": 0.209877
+      },
+      {
+        "offset": 12,
+        "signals": 163,
+        "mean_signed_ticks": 0.055215,
+        "positive_fraction": 0.202454
+      },
+      {
+        "offset": 13,
+        "signals": 173,
+        "mean_signed_ticks": 0.040462,
+        "positive_fraction": 0.196532
+      },
+      {
+        "offset": 14,
+        "signals": 170,
+        "mean_signed_ticks": 0.041176,
+        "positive_fraction": 0.2
+      },
+      {
+        "offset": 15,
+        "signals": 167,
+        "mean_signed_ticks": 0.041916,
+        "positive_fraction": 0.203593
+      },
+      {
+        "offset": 16,
+        "signals": 166,
+        "mean_signed_ticks": -0.018072,
+        "positive_fraction": 0.180723
+      },
+      {
+        "offset": 17,
+        "signals": 166,
+        "mean_signed_ticks": 0.054217,
+        "positive_fraction": 0.216867
+      },
+      {
+        "offset": 18,
+        "signals": 172,
+        "mean_signed_ticks": 0.023256,
+        "positive_fraction": 0.197674
+      },
+      {
+        "offset": 19,
+        "signals": 164,
+        "mean_signed_ticks": 0.042683,
+        "positive_fraction": 0.213415
+      },
+      {
+        "offset": 20,
+        "signals": 159,
+        "mean_signed_ticks": 0.018868,
+        "positive_fraction": 0.194969
+      },
+      {
+        "offset": 21,
+        "signals": 157,
+        "mean_signed_ticks": 0.038217,
+        "positive_fraction": 0.203822
+      },
+      {
+        "offset": 22,
+        "signals": 161,
+        "mean_signed_ticks": 0.024845,
+        "positive_fraction": 0.198758
+      },
+      {
+        "offset": 23,
+        "signals": 168,
+        "mean_signed_ticks": -0.005952,
+        "positive_fraction": 0.190476
+      },
+      {
+        "offset": 24,
+        "signals": 165,
+        "mean_signed_ticks": 0.006061,
+        "positive_fraction": 0.187879
+      },
+      {
+        "offset": 25,
+        "signals": 165,
+        "mean_signed_ticks": 0.018182,
+        "positive_fraction": 0.193939
+      },
+      {
+        "offset": 26,
+        "signals": 166,
+        "mean_signed_ticks": -0.012048,
+        "positive_fraction": 0.168675
+      },
+      {
+        "offset": 27,
+        "signals": 159,
+        "mean_signed_ticks": 0.012579,
+        "positive_fraction": 0.194969
+      },
+      {
+        "offset": 28,
+        "signals": 165,
+        "mean_signed_ticks": 0.006061,
+        "positive_fraction": 0.187879
+      },
+      {
+        "offset": 29,
+        "signals": 167,
+        "mean_signed_ticks": -0.02994,
+        "positive_fraction": 0.167665
+      },
+      {
+        "offset": 30,
+        "signals": 168,
+        "mean_signed_ticks": -0.011905,
+        "positive_fraction": 0.166667
+      }
+    ],
+    "interpretation": "Overlapping phases share the same tape and are not independent; no p-value or CI."
+  },
+  "expanding_walkforward": {
+    "method": "expanding_train_reselection_disjoint_nonoverlapping_event_holdouts",
+    "horizon_events": 30,
+    "thresholds_predeclared": [
+      0.15,
+      0.25,
+      0.35,
+      0.45
+    ],
+    "folds": [
+      {
+        "train_end_exclusive": 6400,
+        "test_start": 6400,
+        "test_end_exclusive": 8800,
+        "status": "evaluated",
+        "chosen_threshold": 0.45,
+        "train_signals": 3797,
+        "test_count": 47,
+        "test_mean_signed_ticks": 0.021277,
+        "test_positive_fraction": 0.170213
+      },
+      {
+        "train_end_exclusive": 8800,
+        "test_start": 8800,
+        "test_end_exclusive": 11200,
+        "status": "evaluated",
+        "chosen_threshold": 0.25,
+        "train_signals": 7097,
+        "test_count": 61,
+        "test_mean_signed_ticks": 0.0,
+        "test_positive_fraction": 0.196721
+      },
+      {
+        "train_end_exclusive": 11200,
+        "test_start": 11200,
+        "test_end_exclusive": 13600,
+        "status": "evaluated",
+        "chosen_threshold": 0.45,
+        "train_signals": 6642,
+        "test_count": 50,
+        "test_mean_signed_ticks": -0.04,
+        "test_positive_fraction": 0.16
+      },
+      {
+        "train_end_exclusive": 13600,
+        "test_start": 13600,
+        "test_end_exclusive": 16000,
+        "status": "evaluated",
+        "chosen_threshold": 0.25,
+        "train_signals": 10970,
+        "test_count": 62,
+        "test_mean_signed_ticks": 0.112903,
+        "test_positive_fraction": 0.225806
+      }
+    ],
+    "fold_count": 4,
+    "folds_with_test_signals": 4,
+    "total_disjoint_test_signals": 220,
+    "pooled_nonoverlap_mean_signed_ticks": 0.027273,
+    "median_fold_mean_signed_ticks": 0.010639,
+    "positive_fold_count": 2,
+    "limitations": [
+      "Within-tape chronological folds share market regimes and expanding training sets; they are NOT independent days or independent p-value replicates.",
+      "Training selects among predeclared thresholds; test folds are used only for evaluation, not post-hoc configuration selection.",
+      "Midprice markouts are not executable order returns and ignore fees, fills, and portfolio risk.",
+      "Event-count horizon is not physical time; crossing a halt/auction removes a label."
+    ]
+  },
+  "execution_assumption_sensitivity": {
+    "hypothetical_signals": 165,
+    "predeclared_latencies_events": [
+      1,
+      2,
+      5
+    ],
+    "predeclared_fees_bps": [
+      0.0,
+      1.0,
+      3.0
+    ],
+    "grid": [
+      {
+        "latency_events": 1,
+        "fee_bps_per_filled_share": 0.0,
+        "models": {
+          "naive_touch": {
+            "hypothetical_orders": 165,
+            "eligible_orders": 165,
+            "ineligible_session_boundary_orders": 0,
+            "quote_changed_during_latency": 1,
+            "filled_orders": 164,
+            "partially_filled_orders": 0,
+            "fill_quantity_fraction": 0.993939,
+            "eligible_fill_quantity_fraction": 0.993939,
+            "mean_fill_conditional_markout_ticks": 1.0,
+            "interpretation": "counterfactual standalone orders; not portfolio PnL"
+          },
+          "cancel_ahead": {
+            "hypothetical_orders": 165,
+            "eligible_orders": 165,
+            "ineligible_session_boundary_orders": 0,
+            "quote_changed_during_latency": 1,
+            "filled_orders": 59,
+            "partially_filled_orders": 10,
+            "fill_quantity_fraction": 0.332121,
+            "eligible_fill_quantity_fraction": 0.332121,
+            "mean_fill_conditional_markout_ticks": 1.012774,
+            "interpretation": "counterfactual standalone orders; not portfolio PnL"
+          },
+          "conservative": {
+            "hypothetical_orders": 165,
+            "eligible_orders": 165,
+            "ineligible_session_boundary_orders": 0,
+            "quote_changed_during_latency": 1,
+            "filled_orders": 31,
+            "partially_filled_orders": 6,
+            "fill_quantity_fraction": 0.164242,
+            "eligible_fill_quantity_fraction": 0.164242,
+            "mean_fill_conditional_markout_ticks": 1.110701,
+            "interpretation": "counterfactual standalone orders; not portfolio PnL"
+          }
+        }
+      },
+      {
+        "latency_events": 1,
+        "fee_bps_per_filled_share": 1.0,
+        "models": {
+          "naive_touch": {
+            "hypothetical_orders": 165,
+            "eligible_orders": 165,
+            "ineligible_session_boundary_orders": 0,
+            "quote_changed_during_latency": 1,
+            "filled_orders": 164,
+            "partially_filled_orders": 0,
+            "fill_quantity_fraction": 0.993939,
+            "eligible_fill_quantity_fraction": 0.993939,
+            "mean_fill_conditional_markout_ticks": 0.000953,
+            "interpretation": "counterfactual standalone orders; not portfolio PnL"
+          },
+          "cancel_ahead": {
+            "hypothetical_orders": 165,
+            "eligible_orders": 165,
+            "ineligible_session_boundary_orders": 0,
+            "quote_changed_during_latency": 1,
+            "filled_orders": 59,
+            "partially_filled_orders": 10,
+            "fill_quantity_fraction": 0.332121,
+            "eligible_fill_quantity_fraction": 0.332121,
+            "mean_fill_conditional_markout_ticks": 0.013676,
+            "interpretation": "counterfactual standalone orders; not portfolio PnL"
+          },
+          "conservative": {
+            "hypothetical_orders": 165,
+            "eligible_orders": 165,
+            "ineligible_session_boundary_orders": 0,
+            "quote_changed_during_latency": 1,
+            "filled_orders": 31,
+            "partially_filled_orders": 6,
+            "fill_quantity_fraction": 0.164242,
+            "eligible_fill_quantity_fraction": 0.164242,
+            "mean_fill_conditional_markout_ticks": 0.111568,
+            "interpretation": "counterfactual standalone orders; not portfolio PnL"
+          }
+        }
+      },
+      {
+        "latency_events": 1,
+        "fee_bps_per_filled_share": 3.0,
+        "models": {
+          "naive_touch": {
+            "hypothetical_orders": 165,
+            "eligible_orders": 165,
+            "ineligible_session_boundary_orders": 0,
+            "quote_changed_during_latency": 1,
+            "filled_orders": 164,
+            "partially_filled_orders": 0,
+            "fill_quantity_fraction": 0.993939,
+            "eligible_fill_quantity_fraction": 0.993939,
+            "mean_fill_conditional_markout_ticks": -1.997141,
+            "interpretation": "counterfactual standalone orders; not portfolio PnL"
+          },
+          "cancel_ahead": {
+            "hypothetical_orders": 165,
+            "eligible_orders": 165,
+            "ineligible_session_boundary_orders": 0,
+            "quote_changed_during_latency": 1,
+            "filled_orders": 59,
+            "partially_filled_orders": 10,
+            "fill_quantity_fraction": 0.332121,
+            "eligible_fill_quantity_fraction": 0.332121,
+            "mean_fill_conditional_markout_ticks": -1.98452,
+            "interpretation": "counterfactual standalone orders; not portfolio PnL"
+          },
+          "conservative": {
+            "hypothetical_orders": 165,
+            "eligible_orders": 165,
+            "ineligible_session_boundary_orders": 0,
+            "quote_changed_during_latency": 1,
+            "filled_orders": 31,
+            "partially_filled_orders": 6,
+            "fill_quantity_fraction": 0.164242,
+            "eligible_fill_quantity_fraction": 0.164242,
+            "mean_fill_conditional_markout_ticks": -1.8867,
+            "interpretation": "counterfactual standalone orders; not portfolio PnL"
+          }
+        }
+      },
+      {
+        "latency_events": 2,
+        "fee_bps_per_filled_share": 0.0,
+        "models": {
+          "naive_touch": {
+            "hypothetical_orders": 165,
+            "eligible_orders": 165,
+            "ineligible_session_boundary_orders": 0,
+            "quote_changed_during_latency": 2,
+            "filled_orders": 163,
+            "partially_filled_orders": 0,
+            "fill_quantity_fraction": 0.987879,
+            "eligible_fill_quantity_fraction": 0.987879,
+            "mean_fill_conditional_markout_ticks": 1.006135,
+            "interpretation": "counterfactual standalone orders; not portfolio PnL"
+          },
+          "cancel_ahead": {
+            "hypothetical_orders": 165,
+            "eligible_orders": 165,
+            "ineligible_session_boundary_orders": 0,
+            "quote_changed_during_latency": 2,
+            "filled_orders": 59,
+            "partially_filled_orders": 10,
+            "fill_quantity_fraction": 0.327273,
+            "eligible_fill_quantity_fraction": 0.327273,
+            "mean_fill_conditional_markout_ticks": 1.022222,
+            "interpretation": "counterfactual standalone orders; not portfolio PnL"
+          },
+          "conservative": {
+            "hypothetical_orders": 165,
+            "eligible_orders": 165,
+            "ineligible_session_boundary_orders": 0,
+            "quote_changed_during_latency": 2,
+            "filled_orders": 32,
+            "partially_filled_orders": 8,
+            "fill_quantity_fraction": 0.163636,
+            "eligible_fill_quantity_fraction": 0.163636,
+            "mean_fill_conditional_markout_ticks": 1.081481,
+            "interpretation": "counterfactual standalone orders; not portfolio PnL"
+          }
+        }
+      },
+      {
+        "latency_events": 2,
+        "fee_bps_per_filled_share": 1.0,
+        "models": {
+          "naive_touch": {
+            "hypothetical_orders": 165,
+            "eligible_orders": 165,
+            "ineligible_session_boundary_orders": 0,
+            "quote_changed_during_latency": 2,
+            "filled_orders": 163,
+            "partially_filled_orders": 0,
+            "fill_quantity_fraction": 0.987879,
+            "eligible_fill_quantity_fraction": 0.987879,
+            "mean_fill_conditional_markout_ticks": 0.007088,
+            "interpretation": "counterfactual standalone orders; not portfolio PnL"
+          },
+          "cancel_ahead": {
+            "hypothetical_orders": 165,
+            "eligible_orders": 165,
+            "ineligible_session_boundary_orders": 0,
+            "quote_changed_during_latency": 2,
+            "filled_orders": 59,
+            "partially_filled_orders": 10,
+            "fill_quantity_fraction": 0.327273,
+            "eligible_fill_quantity_fraction": 0.327273,
+            "mean_fill_conditional_markout_ticks": 0.02312,
+            "interpretation": "counterfactual standalone orders; not portfolio PnL"
+          },
+          "conservative": {
+            "hypothetical_orders": 165,
+            "eligible_orders": 165,
+            "ineligible_session_boundary_orders": 0,
+            "quote_changed_during_latency": 2,
+            "filled_orders": 32,
+            "partially_filled_orders": 8,
+            "fill_quantity_fraction": 0.163636,
+            "eligible_fill_quantity_fraction": 0.163636,
+            "mean_fill_conditional_markout_ticks": 0.082351,
+            "interpretation": "counterfactual standalone orders; not portfolio PnL"
+          }
+        }
+      },
+      {
+        "latency_events": 2,
+        "fee_bps_per_filled_share": 3.0,
+        "models": {
+          "naive_touch": {
+            "hypothetical_orders": 165,
+            "eligible_orders": 165,
+            "ineligible_session_boundary_orders": 0,
+            "quote_changed_during_latency": 2,
+            "filled_orders": 163,
+            "partially_filled_orders": 0,
+            "fill_quantity_fraction": 0.987879,
+            "eligible_fill_quantity_fraction": 0.987879,
+            "mean_fill_conditional_markout_ticks": -1.991007,
+            "interpretation": "counterfactual standalone orders; not portfolio PnL"
+          },
+          "cancel_ahead": {
+            "hypothetical_orders": 165,
+            "eligible_orders": 165,
+            "ineligible_session_boundary_orders": 0,
+            "quote_changed_during_latency": 2,
+            "filled_orders": 59,
+            "partially_filled_orders": 10,
+            "fill_quantity_fraction": 0.327273,
+            "eligible_fill_quantity_fraction": 0.327273,
+            "mean_fill_conditional_markout_ticks": -1.975083,
+            "interpretation": "counterfactual standalone orders; not portfolio PnL"
+          },
+          "conservative": {
+            "hypothetical_orders": 165,
+            "eligible_orders": 165,
+            "ineligible_session_boundary_orders": 0,
+            "quote_changed_during_latency": 2,
+            "filled_orders": 32,
+            "partially_filled_orders": 8,
+            "fill_quantity_fraction": 0.163636,
+            "eligible_fill_quantity_fraction": 0.163636,
+            "mean_fill_conditional_markout_ticks": -1.915911,
+            "interpretation": "counterfactual standalone orders; not portfolio PnL"
+          }
+        }
+      },
+      {
+        "latency_events": 5,
+        "fee_bps_per_filled_share": 0.0,
+        "models": {
+          "naive_touch": {
+            "hypothetical_orders": 165,
+            "eligible_orders": 165,
+            "ineligible_session_boundary_orders": 0,
+            "quote_changed_during_latency": 10,
+            "filled_orders": 155,
+            "partially_filled_orders": 0,
+            "fill_quantity_fraction": 0.939394,
+            "eligible_fill_quantity_fraction": 0.939394,
+            "mean_fill_conditional_markout_ticks": 0.980645,
+            "interpretation": "counterfactual standalone orders; not portfolio PnL"
+          },
+          "cancel_ahead": {
+            "hypothetical_orders": 165,
+            "eligible_orders": 165,
+            "ineligible_session_boundary_orders": 0,
+            "quote_changed_during_latency": 10,
+            "filled_orders": 50,
+            "partially_filled_orders": 10,
+            "fill_quantity_fraction": 0.274545,
+            "eligible_fill_quantity_fraction": 0.274545,
+            "mean_fill_conditional_markout_ticks": 1.03532,
+            "interpretation": "counterfactual standalone orders; not portfolio PnL"
+          },
+          "conservative": {
+            "hypothetical_orders": 165,
+            "eligible_orders": 165,
+            "ineligible_session_boundary_orders": 0,
+            "quote_changed_during_latency": 10,
+            "filled_orders": 32,
+            "partially_filled_orders": 6,
+            "fill_quantity_fraction": 0.175152,
+            "eligible_fill_quantity_fraction": 0.175152,
+            "mean_fill_conditional_markout_ticks": 1.089965,
+            "interpretation": "counterfactual standalone orders; not portfolio PnL"
+          }
+        }
+      },
+      {
+        "latency_events": 5,
+        "fee_bps_per_filled_share": 1.0,
+        "models": {
+          "naive_touch": {
+            "hypothetical_orders": 165,
+            "eligible_orders": 165,
+            "ineligible_session_boundary_orders": 0,
+            "quote_changed_during_latency": 10,
+            "filled_orders": 155,
+            "partially_filled_orders": 0,
+            "fill_quantity_fraction": 0.939394,
+            "eligible_fill_quantity_fraction": 0.939394,
+            "mean_fill_conditional_markout_ticks": -0.018402,
+            "interpretation": "counterfactual standalone orders; not portfolio PnL"
+          },
+          "cancel_ahead": {
+            "hypothetical_orders": 165,
+            "eligible_orders": 165,
+            "ineligible_session_boundary_orders": 0,
+            "quote_changed_during_latency": 10,
+            "filled_orders": 50,
+            "partially_filled_orders": 10,
+            "fill_quantity_fraction": 0.274545,
+            "eligible_fill_quantity_fraction": 0.274545,
+            "mean_fill_conditional_markout_ticks": 0.036234,
+            "interpretation": "counterfactual standalone orders; not portfolio PnL"
+          },
+          "conservative": {
+            "hypothetical_orders": 165,
+            "eligible_orders": 165,
+            "ineligible_session_boundary_orders": 0,
+            "quote_changed_during_latency": 10,
+            "filled_orders": 32,
+            "partially_filled_orders": 6,
+            "fill_quantity_fraction": 0.175152,
+            "eligible_fill_quantity_fraction": 0.175152,
+            "mean_fill_conditional_markout_ticks": 0.090867,
+            "interpretation": "counterfactual standalone orders; not portfolio PnL"
+          }
+        }
+      },
+      {
+        "latency_events": 5,
+        "fee_bps_per_filled_share": 3.0,
+        "models": {
+          "naive_touch": {
+            "hypothetical_orders": 165,
+            "eligible_orders": 165,
+            "ineligible_session_boundary_orders": 0,
+            "quote_changed_during_latency": 10,
+            "filled_orders": 155,
+            "partially_filled_orders": 0,
+            "fill_quantity_fraction": 0.939394,
+            "eligible_fill_quantity_fraction": 0.939394,
+            "mean_fill_conditional_markout_ticks": -2.016496,
+            "interpretation": "counterfactual standalone orders; not portfolio PnL"
+          },
+          "cancel_ahead": {
+            "hypothetical_orders": 165,
+            "eligible_orders": 165,
+            "ineligible_session_boundary_orders": 0,
+            "quote_changed_during_latency": 10,
+            "filled_orders": 50,
+            "partially_filled_orders": 10,
+            "fill_quantity_fraction": 0.274545,
+            "eligible_fill_quantity_fraction": 0.274545,
+            "mean_fill_conditional_markout_ticks": -1.961938,
+            "interpretation": "counterfactual standalone orders; not portfolio PnL"
+          },
+          "conservative": {
+            "hypothetical_orders": 165,
+            "eligible_orders": 165,
+            "ineligible_session_boundary_orders": 0,
+            "quote_changed_during_latency": 10,
+            "filled_orders": 32,
+            "partially_filled_orders": 6,
+            "fill_quantity_fraction": 0.175152,
+            "eligible_fill_quantity_fraction": 0.175152,
+            "mean_fill_conditional_markout_ticks": -1.90733,
+            "interpretation": "counterfactual standalone orders; not portfolio PnL"
+          }
+        }
+      }
+    ],
+    "interpretation": "Fixed signals; no tuning against test, no realistic exchange fee claim."
   },
   "evaluation": {
     "chronological_train_fraction": 0.6,
@@ -65,6 +739,9 @@
     "Displayed market-by-price depth cannot reveal exact FIFO position; cancellation ahead is uncertain.",
     "Hypothetical orders are independent counterfactuals; conditional markouts are not a tradable strategy PnL or Sharpe.",
     "Synthetic demonstrations are controlled unit evidence only, never evidence of financial alpha.",
-    "Circular-shift null reuses autocorrelated observations; empirical p-value is a rough sensitivity check, not a rigorous significance guarantee."
+    "Circular-shift null is disabled for holdout segments spanning halts/auctions; elsewhere it remains exploratory and not a rigorous significance guarantee.",
+    "Non-overlapping label phases are correlated views of one tape, not independent trials, p-values or confidence intervals.",
+    "Execution sensitivity uses fixed test signals for descriptive diagnostics only; no test-set configuration optimization.",
+    "Expanding walk-forward folds are within one tape; they are not independent trading days and do not establish a statistically significant alpha."
   ]
 }

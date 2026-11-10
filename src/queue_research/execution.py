@@ -56,7 +56,10 @@ def simulate_order(rows: list[BookEvent], index: int, direction: int, *,
     if model == 'naive_touch':
         filled, first_fill = quantity, active
     else:
-        for j in range(active+1, finish+1):
+        # The quote at ``finish`` is the markout observation, not an entry
+        # opportunity. Matching a hypothetical fill on that same post-event
+        # snapshot would use the markout event for both execution and PnL.
+        for j in range(active+1, finish):
             ev = rows[j]
             if ev.segment != signal_snapshot.segment:
                 break
