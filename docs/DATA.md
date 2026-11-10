@@ -17,3 +17,17 @@ PYTHONPATH=src python -m queue_research --lobster-zip /your/path/LOBSTER_SampleF
 ```
 
 The JSON report includes SHA-256 of the input ZIP. Do not copy or commit the vendor dataset into this project without confirming its licence. Do not infer market profit from the result: a one-day intraday sample has a severely limited train/test diversity and replay cannot model own-order impact.
+
+## Ingest contract: pair identity, not just equal row counts
+
+The loader now fails closed if the ZIP combines different instrument/session
+identities, different LOBSTER depth declarations, or a depth declaration that
+disagrees with the actual book columns. It also rejects unidentified CSV
+filenames and files whose declared inflated size exceeds 512 MiB per stream.
+Adversarial tests first demonstrated that earlier code accepted cross-symbol
+and cross-date inputs, producing plausible but invalid research rows.
+
+These checks do **not** authenticate the source or prove files from an exchange:
+keep the original ZIP SHA-256 and provider information. A valid file pair is
+necessary, but not sufficient, for point-in-time research integrity.
+The real LOBSTER sample has not been executed in this environment.
