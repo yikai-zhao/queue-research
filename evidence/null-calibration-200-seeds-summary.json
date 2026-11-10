@@ -1,0 +1,67 @@
+{
+  "scope": "SYNTHETIC method calibration only; not real alpha",
+  "configuration": {
+    "seed_range": [
+      0,
+      199
+    ],
+    "events_per_seed": 4000,
+    "null_offsets_per_seed": 99,
+    "horizon_events": 30,
+    "train_fraction": 0.6,
+    "thresholds": [
+      0.15,
+      0.25,
+      0.35,
+      0.45
+    ],
+    "nominal_alpha": 0.05,
+    "null_random_seed_offset": 4141
+  },
+  "source_sha256": {
+    "src/queue_research/research.py": "7053075acfaad199f48375fb5fc4ce13ef81ebea000cbd1660fac6d7f5b65909",
+    "src/queue_research/synthetic.py": "5d233198fe24067735eee167010d5b455dd45a52e8d24c0517670af6d70d239e"
+  },
+  "results": [
+    {
+      "name": "null_no_predictive_relation",
+      "seeds": [
+        0,
+        199
+      ],
+      "tests_evaluated": 200,
+      "p_le_0_05": 16,
+      "p_le_0_05_fraction": 0.08,
+      "wilson_95_fraction": [
+        0.049841,
+        0.125989
+      ],
+      "mean_test_signed_ticks": -0.00593908,
+      "positive_holdout_mean": 98
+    },
+    {
+      "name": "injected_predictive",
+      "seeds": [
+        0,
+        199
+      ],
+      "tests_evaluated": 200,
+      "p_le_0_05": 170,
+      "p_le_0_05_fraction": 0.85,
+      "wilson_95_fraction": [
+        0.793944,
+        0.892864
+      ],
+      "mean_test_signed_ticks": 0.23275123,
+      "positive_holdout_mean": 199
+    }
+  ],
+  "all_400_seed_decisions_sha256": "742caa26261a031171e2cc1e1ec444cd2f16cf2db9ad46a20d841dbe6537b8fa",
+  "all_400_decisions": "Regenerate by running the fixed script with --seeds 200 --events 4000 --shifts 99; full raw JSON accompanies the audit archive, not redistributed inside Git.",
+  "limitations": [
+    "Synthetic regimes reuse a fixed simple generator; test seeds are independent RNG streams, not independent market days.",
+    "P-value is a single-path feature circular-shift diagnostic, with no calibrated guarantee under exchange dynamics or multiple hypotheses.",
+    "A significant synthetic null case is a false positive relative to the known data-generating process, not a financial trade.",
+    "Wilson intervals describe binomial seed-to-seed occurrence, not actual market confidence or strategy Sharpe."
+  ]
+}
