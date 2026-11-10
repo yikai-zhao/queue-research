@@ -12,6 +12,7 @@ from .execution import comparison
 from .research import screen, side
 from .robustness import phase_sensitivity, execution_sensitivity
 from .synthetic import generate
+from .walkforward import expanding_folds
 
 
 def study(rows, *, source, source_hash=None, horizon=30, latency=2,
@@ -32,6 +33,7 @@ def study(rows, *, source, source_hash=None, horizon=30, latency=2,
         'visible_execution_event_fraction': round(len(trade_events)/len(book_events), 6) if book_events else None,
         'signal': asdict(fitted), 'execution': actions,
         'holdout_phase_sensitivity': phase_sensitivity(rows, fitted),
+        'expanding_walkforward': expanding_folds(rows, horizon=horizon),
         'execution_assumption_sensitivity': execution_sensitivity(
             rows, probes, horizon=horizon,
             latencies=tuple(x for x in (1, 2, 5) if x < horizon)),
@@ -48,7 +50,8 @@ def study(rows, *, source, source_hash=None, horizon=30, latency=2,
             'Synthetic demonstrations are controlled unit evidence only, never evidence of financial alpha.',
             'Circular-shift null is disabled for holdout segments spanning halts/auctions; elsewhere it remains exploratory and not a rigorous significance guarantee.',
             'Non-overlapping label phases are correlated views of one tape, not independent trials, p-values or confidence intervals.',
-            'Execution sensitivity uses fixed test signals for descriptive diagnostics only; no test-set configuration optimization.'
+            'Execution sensitivity uses fixed test signals for descriptive diagnostics only; no test-set configuration optimization.',
+            'Expanding walk-forward folds are within one tape; they are not independent trading days and do not establish a statistically significant alpha.'
         ]
     }
 

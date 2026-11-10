@@ -1,15 +1,15 @@
 # Queue Research
 
-**Order-book imbalance research meets execution reality.** A small, dependency-free Python lab that asks two related questions: Does a best-level order-book imbalance signal survive a chronological holdout? And if it does, would a passive order actually fill under defensible queue assumptions?
+**Market microstructure signal research, without pretending a backtest is a trade.** A small, dependency-free Python lab that asks two related questions: Does a best-level order-book imbalance signal survive a chronological holdout? And if it does, would a passive order actually fill under defensible queue assumptions?
 
-Built for investigating **market microstructure, analytical signals, and exchange-simulation assumptions**. It is not a portfolio backtester, a production exchange simulator, or evidence of a profitable strategy.
+Built for **quant research, trading research, and quant developer** roles: hypothesis selection, chronological validation, event-level data integrity, and execution assumptions. It is not a portfolio backtester, a production exchange simulator, or evidence of a profitable strategy.
 
 ## What is implemented
 
 - **Historical sample adapter:** accepts a user-downloaded LOBSTER message/orderbook ZIP, matches every event to its **post-event** best quote, uses exact integer price units and nanosecond timestamps, rejects malformed/crossed books, and excludes auction/halt events.
 - **Research:** best-level **displayed depth imbalance** (not Cont–Kukanov–Stoikov's order-flow imbalance), four predefined thresholds fitted only on the first 60% of events, purged forward labels, chronological 40% holdout, signed forward midprice markouts, and a cautious circular-shift null diagnostic (disabled if the holdout spans halts/auctions).
 - **Execution:** makes an order decision using the quote **available at signal time** and activates it only after a stated event latency; compares intentionally naive instant-touch fills with a conservative trade-only FIFO-ahead estimate and an optimistic cancellation-ahead estimate. Tracks partial fills, fee-adjusted conditional markouts, missed fills, quote departure, and execution of the final displayed level.
-- **Research integrity:** 12 fixed null/positive seed pairs; non-overlapping holdout-window phase sensitivity; a predeclared 3×3 latency/fee execution grid; explicit exclusion of sessions crossing an auction or halt. Unit and negative-case tests are executable without any private data.
+- **Research integrity:** 12 fixed null/positive seed pairs; a four-fold **expanding chronological walk-forward** diagnostic with non-overlapping forward labels; holdout-window phase sensitivity; a predeclared 3×3 latency/fee execution grid; explicit exclusion of sessions crossing an auction or halt. These are not multiple independent trading days.
 
 ## Reproduce (Python 3.11+, no dependencies or paid infrastructure)
 
@@ -51,7 +51,7 @@ The new integrity checks found no new market alpha: on the same 16,000-event **s
 
 A signal can predict a midprice change while still yielding **zero passive fills**. The naive-touch model deliberately assumes all eligible orders fill immediately; it is a comparison bound, not a viable execution strategy. Market-by-price (L2) data does not reveal the exact FIFO queue ahead of a new order, and a historical replay cannot model the market impact of adding our order. It reports **hypothetical order-level, fill-conditional markouts**, never compounded PnL, Sharpe or claimed HFT profitability. Event-count latency is not physical microseconds.
 
-See [Methodology and invariants](docs/METHODOLOGY.md), [Data provenance and required real-data milestone](docs/DATA.md), [Evidence and regression status](docs/VALIDATION.md).
+See [Walk-forward methodology and controlled limitations](docs/WALK_FORWARD.md), [Methodology and invariants](docs/METHODOLOGY.md), [Data provenance and required real-data milestone](docs/DATA.md), [Evidence and regression status](docs/VALIDATION.md).
 
 ## Related work
 
