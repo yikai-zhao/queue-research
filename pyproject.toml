@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools>=65"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "queue-research"
+version = "0.1.0"
+description = "Market microstructure and queue-aware execution sensitivity study"
+requires-python = ">=3.11"
+
+[tool.setuptools.packages.find]
+where = ["src"]

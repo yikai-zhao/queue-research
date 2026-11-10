@@ -1,0 +1,70 @@
+{
+  "source": "synthetic:null:seed=11",
+  "sha256": null,
+  "source_type": "synthetic",
+  "events": 16000,
+  "orderbook_event_kind_counts": {
+    "1": 6694,
+    "2": 2664,
+    "3": 0,
+    "4": 6642,
+    "5": 0
+  },
+  "visible_execution_event_fraction": 0.415125,
+  "signal": {
+    "threshold": 0.25,
+    "horizon": 30,
+    "train_end": 9600,
+    "test_start": 9600,
+    "train_samples": 7710,
+    "test_samples": 5133,
+    "train_mean_signed_ticks": 0.027885862516212712,
+    "test_mean_signed_ticks": 0.017533606078316773,
+    "test_positive_fraction": 0.1891681278005065,
+    "shifted_null_p_value": 0.36633663366336633,
+    "null_iterations": 100
+  },
+  "execution": {
+    "naive_touch": {
+      "hypothetical_orders": 165,
+      "filled_orders": 163,
+      "partially_filled_orders": 0,
+      "fill_quantity_fraction": 0.987879,
+      "mean_fill_conditional_markout_ticks": 0.007088,
+      "interpretation": "counterfactual standalone orders; not portfolio PnL"
+    },
+    "cancel_ahead": {
+      "hypothetical_orders": 165,
+      "filled_orders": 61,
+      "partially_filled_orders": 9,
+      "fill_quantity_fraction": 0.341212,
+      "mean_fill_conditional_markout_ticks": 0.022209,
+      "interpretation": "counterfactual standalone orders; not portfolio PnL"
+    },
+    "conservative": {
+      "hypothetical_orders": 165,
+      "filled_orders": 33,
+      "partially_filled_orders": 8,
+      "fill_quantity_fraction": 0.172121,
+      "mean_fill_conditional_markout_ticks": 0.078318,
+      "interpretation": "counterfactual standalone orders; not portfolio PnL"
+    }
+  },
+  "evaluation": {
+    "chronological_train_fraction": 0.6,
+    "purge": "train labels must mature inside train period",
+    "test_probes": 165,
+    "max_overlapping_probe_horizons": 0,
+    "fees_bps_per_filled_unit": 1,
+    "queue_models": "naive touch is intentionally unrealistic; conservative ignores cancels; cancel-ahead assumes all cancels ahead"
+  },
+  "limitations": [
+    "No market impact, risk limits, latency measured in events rather than nanoseconds, exchange-specific fee schedule, or production-calibrated execution.",
+    "LOBSTER free sample is historical and one day only: time split is not an out-of-day validation.",
+    "Visible executions have order-side direction, not aggressor side.",
+    "Displayed market-by-price depth cannot reveal exact FIFO position; cancellation ahead is uncertain.",
+    "Hypothetical orders are independent counterfactuals; conditional markouts are not a tradable strategy PnL or Sharpe.",
+    "Synthetic demonstrations are controlled unit evidence only, never evidence of financial alpha.",
+    "Circular-shift null reuses autocorrelated observations; empirical p-value is a rough sensitivity check, not a rigorous significance guarantee."
+  ]
+}

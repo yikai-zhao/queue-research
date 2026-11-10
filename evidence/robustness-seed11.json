@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "source": "seeded synthetic generator; not market data",
+  "evaluation": "fixed seed 11, 16000 stylized events per run, holdout 40%, h=30 events, no strategy PnL",
+  "trials": {
+    "null": {
+      "signal_threshold_selected_on_train": 0.25,
+      "test_mean_signed_ticks": 0.017534,
+      "circular_shift_tail_p_exploratory": 0.36633663366336633,
+      "circular_shift_status": "exploratory_single_segment_circular_shift",
+      "positive_nonoverlap_phases": 21,
+      "nonoverlap_phases_total": 31,
+      "baseline_execution_fill_fractions": {
+        "naive_touch": 0.987879,
+        "cancel_ahead": 0.341212,
+        "conservative": 0.172121
+      },
+      "sensitivity_cells": 9,
+      "synthetic_only": true
+    },
+    "predictive": {
+      "signal_threshold_selected_on_train": 0.45,
+      "test_mean_signed_ticks": 0.177151,
+      "circular_shift_tail_p_exploratory": 0.009900990099009901,
+      "circular_shift_status": "exploratory_single_segment_circular_shift",
+      "positive_nonoverlap_phases": 31,
+      "nonoverlap_phases_total": 31,
+      "baseline_execution_fill_fractions": {
+        "naive_touch": 0.964602,
+        "cancel_ahead": 0.307965,
+        "conservative": 0.142478
+      },
+      "sensitivity_cells": 9,
+      "synthetic_only": true
+    }
+  },
+  "controlled_seed_panel": {
+    "n_seeds": 12,
+    "events_per_run": 4000,
+    "null_permutations": 49,
+    "null_nominal_5pct_false_positives": 0,
+    "positive_nominal_5pct_detected": 8
+  },
+  "source_sha256": {
+    "src/queue_research/data.py": "310151d8716c52ddf408e46cea7569d2d8b36b1f78cc19ead714f0037c949e83",
+    "src/queue_research/research.py": "7053075acfaad199f48375fb5fc4ce13ef81ebea000cbd1660fac6d7f5b65909",
+    "src/queue_research/experiment.py": "987beac7c5582c1313bda5a9a8ba15825ec5f64f13f7cd07de57ec6e9bcd043d",
+    "src/queue_research/execution.py": "06717830338988a88491dbbafa9e9a92fd4ef6bbde210ad4a5672834a0d838ea",
+    "src/queue_research/robustness.py": "fc11a9b0e0049997475d3c36148e3b81b93fe42d499d0623694e734e0b40dc39",
+    "src/queue_research/synthetic.py": "5d233198fe24067735eee167010d5b455dd45a52e8d24c0517670af6d70d239e"
+  },
+  "caveat": "All numerical observations from synthetic tape; no live market, strategy PnL, Sharpe, calibrated execution, or licensed real tape."
+}
