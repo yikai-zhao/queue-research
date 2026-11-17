@@ -4,6 +4,8 @@
 
 Built for **quant research, trading research, and quant developer** roles: hypothesis selection, chronological validation, event-level data integrity, and execution assumptions. It is not a portfolio backtester, a production exchange simulator, or evidence of a profitable strategy.
 
+**Historical tape validation status (2026-11-17):** Real sample analysis remains **unverified here**. A new [local multi-archive provenance and evaluation gate](docs/HISTORICAL_TAPE_GATE.md) validates user-provided LOBSTER ZIP identities, records SHA-256 and spread/event diagnostics, refuses duplicate sessions, and distinguishes single-day from genuinely multi-date evidence. It can invoke the existing research engine per archive without fitting across tapes. Synthetic ZIP fixtures test the workflow; they are not real NASDAQ market evidence.
+
 ## What is implemented
 
 - **Historical sample adapter:** accepts a user-downloaded LOBSTER message/orderbook ZIP, matches every event to its **post-event** best quote, uses exact integer price units and nanosecond timestamps, rejects malformed/crossed books, and excludes auction/halt events.
