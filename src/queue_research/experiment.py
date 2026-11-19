@@ -9,7 +9,7 @@ from pathlib import Path
 from statistics import mean
 from .data import from_lobster_zip
 from .execution import comparison
-from .research import screen, side
+from .research import _scores, screen, side
 from .robustness import phase_sensitivity, execution_sensitivity
 from .synthetic import generate
 from .walkforward import expanding_folds
@@ -18,6 +18,13 @@ from .walkforward import expanding_folds
 def study(rows, *, source, source_hash=None, horizon=30, latency=2,
           fee_bps=1, null_iterations=100, seed=2026):
     fitted = screen(rows,horizon=horizon,null_iterations=null_iterations,seed=seed)
+    test_end = len(rows)
+    eligible_test_labels = sum(
+        rows[i].segment == rows[i+horizon].segment
+        for i in range(fitted.test_start, test_end-horizon)
+    )
+    fixed_threshold = 0.25
+    fixed_scores = _scores(rows, horizon, fitted.test_start, test_end, fixed_threshold)
     # Strictly TEST-only execution probes. Spaced beyond their horizon to avoid
     # turning overlapping hypothetical orders into fake independent trades.
     probes = [(i,side(rows[i].imbalance,fitted.threshold))
@@ -32,6 +39,22 @@ def study(rows, *, source, source_hash=None, horizon=30, latency=2,
         'events': len(rows), 'orderbook_event_kind_counts': {str(k):sum(r.kind==k for r in rows) for k in (1,2,3,4,5)},
         'visible_execution_event_fraction': round(len(trade_events)/len(book_events), 6) if book_events else None,
         'signal': asdict(fitted), 'execution': actions,
+        'predeclared_baselines': {
+            'no_prediction': {
+                'eligible_test_labels': eligible_test_labels,
+                'active_signals': 0,
+                'mean_signed_ticks': 0.0,
+                'interpretation': 'zero directional exposure; not a midprice forecast',
+            },
+            'fixed_threshold': {
+                'threshold': fixed_threshold,
+                'test_signals': len(fixed_scores),
+                'mean_signed_ticks': round(mean(fixed_scores), 6) if fixed_scores else None,
+                'positive_fraction': round(sum(x > 0 for x in fixed_scores)/len(fixed_scores), 6)
+                if fixed_scores else None,
+                'interpretation': 'predeclared threshold evaluated on the same chronological holdout',
+            },
+        },
         'holdout_phase_sensitivity': phase_sensitivity(rows, fitted),
         'expanding_walkforward': expanding_folds(rows, horizon=horizon),
         'execution_assumption_sensitivity': execution_sensitivity(

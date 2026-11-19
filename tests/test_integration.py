@@ -2,8 +2,10 @@ import json
 import tempfile
 from pathlib import Path
 import unittest
+from statistics import mean
 from queue_research.synthetic import generate
 from queue_research.experiment import study, main
+from queue_research.research import _scores, screen
 
 
 class IntegrationTests(unittest.TestCase):
@@ -16,6 +18,21 @@ class IntegrationTests(unittest.TestCase):
         self.assertIn('naive_touch',a['execution'])
         self.assertIn('conservative',a['execution'])
         self.assertEqual(a['signal']['test_start'],2400)
+        self.assertEqual(a['predeclared_baselines']['no_prediction']['active_signals'],0)
+        self.assertEqual(a['predeclared_baselines']['no_prediction']['mean_signed_ticks'],0.0)
+        self.assertEqual(a['predeclared_baselines']['fixed_threshold']['threshold'],0.25)
+        self.assertGreater(a['predeclared_baselines']['fixed_threshold']['test_signals'],0)
+
+    def test_fixed_threshold_baseline_is_separate_from_fitted_signal(self):
+        data=generate(4000,seed=11,predictive=True)
+        result=study(data,source='synthetic:predictive:seed=11',null_iterations=0)
+        baseline=result['predeclared_baselines']['fixed_threshold']
+        fitted=screen(data,null_iterations=0)
+        expected=_scores(data,fitted.horizon,fitted.test_start,len(data),0.25)
+        self.assertNotEqual(fitted.threshold,0.25)
+        self.assertEqual(baseline['test_signals'],len(expected))
+        self.assertEqual(baseline['mean_signed_ticks'],round(mean(expected),6))
+        self.assertEqual(baseline['threshold'],0.25)
 
     def test_cli_writes_valid_json_and_requires_no_api(self):
         with tempfile.TemporaryDirectory() as temp:

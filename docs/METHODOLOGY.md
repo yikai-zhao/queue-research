@@ -23,6 +23,7 @@ Decision `s[t] = 1` if `I[t] >= threshold`, `-1` if `I[t] <= -threshold`, otherw
 - First 60% of input events train. Every training label **must mature before** the test boundary; a horizon-sized tail at the boundary is unused. Remaining 40% held out chronologically.
 - Choose highest mean signed TRAIN forward tick move among candidates with at least 20 train signals. Compare on TEST without refitting.
 - Report train/test sample counts, train/test mean signed ticks, fraction strictly positive, and 100 random circular-shift surrogate means when enough offset room exists and the holdout stays within one continuous trading segment. Circular shifts preserve local feature autocorrelation but may not preserve all time-series dependence or seasonality; the resulting empirical tail probability is a **sensitivity diagnostic**, not proof of statistical significance.
+- Compare the selected threshold with a **predeclared 0.25 threshold** on the exact same holdout and a **zero-directional-exposure baseline**. These are descriptive controls: neither supplies an uncertainty interval or repairs the dependence among event-level labels.
 - Many event labels overlap in time. This is *not* 10,000 independent trials. A single intraday time split on the LOBSTER free sample cannot validate a stable live-market edge.
 
 ## Passive order counterfactuals
