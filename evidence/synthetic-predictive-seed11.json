@@ -63,6 +63,21 @@
       "interpretation": "counterfactual standalone orders; not portfolio PnL"
     }
   },
+  "predeclared_baselines": {
+    "no_prediction": {
+      "eligible_test_labels": 6370,
+      "active_signals": 0,
+      "mean_signed_ticks": 0.0,
+      "interpretation": "zero directional exposure; not a midprice forecast"
+    },
+    "fixed_threshold": {
+      "threshold": 0.25,
+      "test_signals": 5122,
+      "mean_signed_ticks": 0.157556,
+      "positive_fraction": 0.266107,
+      "interpretation": "predeclared threshold evaluated on the same chronological holdout"
+    }
+  },
   "holdout_phase_sensitivity": {
     "phases_evaluated": 31,
     "phases_with_signals": 31,

@@ -8,7 +8,7 @@
 - Schema and event interpretation: https://php.lobsterdata.com/info/DataStructure.php
 - Suggested file: `LOBSTER_SampleFile_AAPL_2012-06-21_1.zip`
 
-The development runtime could browse the provider documentation but could **not download the ZIP** because external binary access/DNS was unavailable. Tests therefore construct their own schema-compatible small ZIPs and exercise strict alignment, precision, row corruption, halt filtering and missing-file errors. That is only **format compatibility testing**, not real NASDAQ empirical validation.
+The development runtime could not resolve the provider host while attempting to open its official sample page (`URLError: [Errno -5] No address associated with hostname`, 2026-11-19). No ZIP was acquired or processed. Tests therefore construct their own schema-compatible small ZIPs and exercise strict alignment, precision, row corruption, halt filtering and missing-file errors. That is only **format compatibility testing**, not real NASDAQ empirical validation.
 
 To reproduce real-data analysis, download ZIP yourself from the provider's site, keep it outside the repository, and run:
 

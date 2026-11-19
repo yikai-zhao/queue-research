@@ -5,6 +5,8 @@
 - Fixed 12-seed controlled panel: 12 null + 12 injected-positive simulated sequences, 4,000 events each, 49 circular shifts per test. **0/12 nominal null positives and 8/12 nominal positive detections.** Counts describe this constructed panel only, not market significance/predictive accuracy.
 - Input LOBSTER samples: **not acquired in the runtime**. Actual replay results must be produced before résumé claims involving NASDAQ historical price predictability, exchange fill calibration or strategy monetization.
 - No GitHub Actions workflows, paid services or authenticated exchange APIs.
+- Every study JSON now records the no-directional-exposure reference and same-holdout fixed 0.25 threshold. On the saved synthetic seed-11 reports these fixed-threshold means are +0.0175 (null) and +0.1576 (injected positive); they are not real-data evidence or independent statistical results.
+- Official sample access was attempted on 2026-11-19 and failed at DNS resolution (`[Errno -5] No address associated with hostname`). The real-data phase remains blocked, not passed.
 
 Run:
 
